@@ -7,6 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/bg_color"
+        android:fitsSystemWindows="true"
         tools:context=".ui.fragment.TeamDetailsFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -50,10 +51,10 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/allChip"
-                android:checked="true"
                 style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checked="true"
                 android:fontFamily="@font/font"
                 android:text="@string/all"
                 android:textColor="@color/white"
