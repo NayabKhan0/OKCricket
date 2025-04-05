@@ -7,7 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.okcricket.data.model.PlayerDetailsEntity
 import com.android.okcricket.databinding.PlayerItemBinding
 
-class PlayerInfoAdapter(private var players: List<PlayerDetailsEntity>) :
+class PlayerInfoAdapter(
+    private var players: List<PlayerDetailsEntity>,
+    private val onItemClick: (PlayerDetailsEntity) -> Unit
+) :
     RecyclerView.Adapter<PlayerInfoAdapter.PlayerViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -21,6 +24,9 @@ class PlayerInfoAdapter(private var players: List<PlayerDetailsEntity>) :
     override fun onBindViewHolder(holder: PlayerInfoAdapter.PlayerViewHolder, position: Int) {
         val player = players[position]
         holder.binding.apply {
+            mainLayout.setOnClickListener {
+                onItemClick(player)
+            }
             if (player.isCaptain == true && player.isKeeper == true) {
                 playerNameTextView.text = "${player.name}(C)/(WK)"
             } else if (player.isCaptain == true) {

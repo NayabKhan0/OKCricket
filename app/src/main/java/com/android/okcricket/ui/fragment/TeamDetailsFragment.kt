@@ -1,6 +1,7 @@
 package com.android.okcricket.ui.fragment
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -30,7 +31,9 @@ class TeamDetailsFragment : Fragment() {
             TeamDetailsFragmentArgs.fromBundle(requireArguments()).playerList
         playerList = combineTeamPlayer.team1Player!! + combineTeamPlayer.team2Player!!
 
-        val adapter = PlayerInfoAdapter(playerList)
+        val adapter = PlayerInfoAdapter(playerList) {
+            showPlayerDialog(it)
+        }
         binding.playerListRecyclerView.adapter = adapter
         binding.chipGroupFilter.setOnCheckedStateChangeListener { group, checkedId ->
             val chip = group.findViewById<Chip>(checkedId[0])
@@ -56,6 +59,20 @@ class TeamDetailsFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    private fun showPlayerDialog(playerDetailsEntity: PlayerDetailsEntity) {
+
+        AlertDialog.Builder(requireContext())
+            .setTitle("Player Info")
+            .setMessage(
+                "Name: ${playerDetailsEntity.name}\nBatting Style: ${playerDetailsEntity.battingStyle}\n" +
+                        "Bowling Style: ${playerDetailsEntity.bowlingStyle}"
+            )
+            .setPositiveButton("OK") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
     }
 
 }
