@@ -17,6 +17,10 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildFeatures {
+        dataBinding = true
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -26,6 +30,7 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -33,6 +38,7 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
 }
 
 dependencies {
@@ -58,4 +64,10 @@ dependencies {
     implementation(libs.coroutines.android)
     // RecyclerView
     implementation(libs.recyclerview)
+    // Navigation (optional)
+    implementation(libs.navigation.fragment)
+    implementation(libs.navigation.ui)
+    //CircularImageView
+    implementation(libs.circularImg)
+
 }

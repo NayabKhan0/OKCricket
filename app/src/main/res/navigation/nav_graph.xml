@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/matchDetailsFragment">
+
+    <fragment
+        android:id="@+id/matchDetailsFragment"
+        android:name="com.android.okcricket.ui.fragment.MatchDetailsFragment"
+        android:label="fragment_match_details"
+        tools:layout="@layout/fragment_match_details" >
+        <action
+            android:id="@+id/action_matchDetailsFragment_to_teamDetailsFragment"
+            app:destination="@id/teamDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/teamDetailsFragment"
+        android:name="com.android.okcricket.ui.fragment.TeamDetailsFragment"
+        android:label="fragment_team_details"
+        tools:layout="@layout/fragment_team_details" />
+</navigation>
