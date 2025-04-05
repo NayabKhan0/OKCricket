@@ -112,12 +112,14 @@ class MatchDetailsFragment : Fragment() {
     private fun showLoading() {
         binding.mainCardView.visibility = View.GONE
         binding.anotherDataCardView.visibility = View.GONE
+        binding.playerInfoCardView.visibility = View.GONE
         binding.progressBar.visibility = View.VISIBLE
     }
 
     private fun dismissLoading() {
         binding.mainCardView.visibility = View.VISIBLE
         binding.anotherDataCardView.visibility = View.VISIBLE
+        binding.playerInfoCardView.visibility = View.VISIBLE
         binding.progressBar.visibility = View.GONE
     }
 }
